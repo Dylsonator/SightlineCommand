@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Levels/MainMenu.unity
+    guid: 0c4c5bcb3bcee5846b3640fcccfbdd42
+  - enabled: 1
+    path: Assets/Scenes/Testing/GameTesting.unity
+    guid: 8466f43b54e71844c912157ceb5c5280
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial.unity
+    guid: 58d506596530c6a4c91a555271fdceb5
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelTypes/PlainsLevel.unity
+    guid: 66d4a8bfb43e91045bcb204caff1b3fd
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelTypes/WaterLevel.unity
+    guid: 8bb00690c734f9b46b591894bed42289
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelTypes/CityLevel.unity
+    guid: 0b7e849b21b620245aaba4025ce71607
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 89410631a2f85964da497b3df558f1bf, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 2a7302608735c8747b4cf9769c0f36dc, type: 2}

@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbe8be529e0c484e8860ecf5f840a93, type: 3}
+  m_Name: UnitTesting
+  m_EditorClassIdentifier: 
+  tiles:
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 0, y: 0}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 0, y: 1}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 270727258609585479, guid: 8f0b4788e00d683448174f76e24a8b01, type: 3}
+    decorationRotation: {x: -0, y: 300, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 0, y: 2}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 5604806301651022278, guid: 63d6372ef9ddfcb40bda61abc7995a35, type: 3}
+    decorationRotation: {x: -0, y: 300, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 0, y: 3}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 270727258609585479, guid: 8f0b4788e00d683448174f76e24a8b01, type: 3}
+    decorationRotation: {x: -0, y: 300, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 0, y: 4}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 180, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 1, y: 0}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 60, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 3734930054502818528, guid: 5a51f050645416f40b22c2041806e27e, type: 3}
+    coords: {x: 1, y: 1}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 0}
+    decorationRotation: {x: 0, y: 0, z: 0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 3734930054502818528, guid: 08d19b3794c6cca478ecb391cc4c65f1, type: 3}
+    coords: {x: 1, y: 2}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 180, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 3734930054502818528, guid: 74318742dd9b0c24d8ac2cf297a64c1b, type: 3}
+    coords: {x: 1, y: 3}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 60, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 1, y: 4}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 0, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 2, y: 0}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 5604806301651022278, guid: 63d6372ef9ddfcb40bda61abc7995a35, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 2, y: 1}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 60, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 2, y: 2}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 270727258609585479, guid: 8f0b4788e00d683448174f76e24a8b01, type: 3}
+    decorationRotation: {x: -0, y: 300, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 2, y: 3}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 270727258609585479, guid: 8f0b4788e00d683448174f76e24a8b01, type: 3}
+    decorationRotation: {x: -0, y: 0, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 2, y: 4}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 3, y: 0}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 3, y: 1}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 0}
+    decorationRotation: {x: 0, y: 0, z: 0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 39589110105085414, guid: d165fc284cb78eb428136ee8d0191c3b, type: 3}
+    coords: {x: 3, y: 2}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 0}
+    decorationRotation: {x: 0, y: 0, z: 0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 39589110105085414, guid: b7cae24eb92fd8c4caa924588987f263, type: 3}
+    coords: {x: 3, y: 3}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 3, y: 4}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 270727258609585479, guid: 8f0b4788e00d683448174f76e24a8b01, type: 3}
+    decorationRotation: {x: -0, y: 60, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 4, y: 0}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 120, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 4, y: 1}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+    decorationRotation: {x: -0, y: 240, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 4, y: 2}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+    decorationRotation: {x: -0, y: 180, z: -0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 4, y: 3}
+  - terrainType: {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+    decoration: {fileID: 0}
+    decorationRotation: {x: 0, y: 0, z: 0}
+    buildingHere: {fileID: 0}
+    unitHere: {fileID: 0}
+    coords: {x: 4, y: 4}
+  width: 5
+  height: 5
+  scale: 2
+  gapScale: 1.025

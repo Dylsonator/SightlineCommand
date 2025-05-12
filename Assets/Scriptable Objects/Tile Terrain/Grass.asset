@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90218d8f0b6dabe4fafdd768394072e3, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: 
+  terrainName: Grass
+  material: {fileID: 2100000, guid: 8827b18b7b036d044b03dbc1d2f1209d, type: 2}
+  travelSpeed: 1
+  walkable: 1
+  decorations:
+  - {fileID: 270727258609585479, guid: 8f0b4788e00d683448174f76e24a8b01, type: 3}
+  - {fileID: 1648771566205993822, guid: 2767e49e4bd218d409027527c2bc6e53, type: 3}
+  - {fileID: 4947065853307073972, guid: f2b2a0b156efc254bb573ab31301b090, type: 3}
+  - {fileID: 5604806301651022278, guid: 63d6372ef9ddfcb40bda61abc7995a35, type: 3}
+  decorationFrequency: 0.8

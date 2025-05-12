@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &775632302131645232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884540489468443584}
+  - component: {fileID: 3568308934959176345}
+  m_Layer: 0
+  m_Name: GridGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1884540489468443584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775632302131645232}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3568308934959176345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775632302131645232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e83f5b0f385447adfcbd0ac761aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainTypes:
+  - {fileID: 11400000, guid: 98e40cc50689bce46b7fc44b054593bc, type: 2}
+  - {fileID: 11400000, guid: 9e4c449be534f374da16f61e7f63cb41, type: 2}
+  - {fileID: 11400000, guid: e298130d8e0f7904ba026d129a4b3bc4, type: 2}
+  - {fileID: 11400000, guid: ff1687c5959b5e8489c9c259df964941, type: 2}
+  levelSave: {fileID: 0}
+  scale: 10
+  gapScale: 1
+  width: 8
+  height: 10
+  humanFOB: {fileID: -8307384421736121945, guid: 724a03601f91c6940b68d964356b994c, type: 3}
+  alienFOB: {fileID: -8307384421736121945, guid: a029cc9fe8632de4b88076cbbe2a084d, type: 3}
+  testUnits: 1
+  Humanunit: {fileID: 3734930054502818528, guid: 5a51f050645416f40b22c2041806e27e, type: 3}
+  Alienunit: {fileID: 39589110105085414, guid: b7cae24eb92fd8c4caa924588987f263, type: 3}
+  testSoldierAmount: 5
+  testAlienAmount: 5
+  inEditor: 0

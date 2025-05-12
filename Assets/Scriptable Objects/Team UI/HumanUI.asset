@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a600963f926ee4893fbaa4af14825c, type: 3}
+  m_Name: HumanUI
+  m_EditorClassIdentifier: 
+  teamName: Human
+  background: {fileID: 21300000, guid: ac9705c982d9e96478a24aff4711eda3, type: 3}
+  textColor: {r: 0.8018868, g: 0.67537796, b: 0.17777678, a: 1}
+  buttonColor: {r: 0.8, g: 0.6745098, b: 0.1764706, a: 1}
