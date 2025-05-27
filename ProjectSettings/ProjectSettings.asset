@@ -162,7 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.SightlineCommand
+    Standalone: com.SightlineCommand.SightlineCommand
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -987,7 +987,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 2
+  activeInputHandler: 0
   windowsGamepadBackendHint: 0
   cloudProjectId: a2850ade-3576-4ed3-82c5-236dcaf026d6
   framebufferDepthMemorylessMode: 0

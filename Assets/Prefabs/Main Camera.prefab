@@ -18,10 +18,8 @@ GameObject:
   - component: {fileID: 4621755326212949098}
   - component: {fileID: 7928826918719343406}
   - component: {fileID: 3380659083843280757}
-  - component: {fileID: 3434719165268569092}
   - component: {fileID: 9188303733577615266}
   - component: {fileID: 1949131524446082210}
-  - component: {fileID: 267117795264929531}
   - component: {fileID: 5559657055935310176}
   m_Layer: 0
   m_Name: Main Camera
@@ -401,102 +399,6 @@ MonoBehaviour:
   HumanRotation: {x: 90, y: 0, z: 0}
   AlienPosition: {x: 0, y: 15.3, z: -2.8}
   AlienRotation: {x: 90, y: 0, z: 180}
---- !u!82 &3434719165268569092
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504401962825490748}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf705bd9ab0dd96499bb9abfd838e1b7, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!82 &9188303733577615266
 AudioSource:
   m_ObjectHideFlags: 0
@@ -605,21 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06716d8dd1e2ba2458d56a9cba9ed0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicSource: {fileID: 3434719165268569092}
---- !u!114 &267117795264929531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504401962825490748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4f7c3c1030b914f8310f1915b09304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseCursor: {fileID: 5559657055935310176}
-  handCursor: {fileID: 8652679737003765920}
+  MusicSource: {fileID: 3320619003259019058}
 --- !u!114 &5559657055935310176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,9 +535,93 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7611444070101116944}
     m_Modifications:
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: WhilePoseDetected.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateModeDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnifiedCursor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 878732509935466966, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407617521206665578, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407617521206665578, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407617521206665578, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407617521206665578, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateModeDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407617521206665578, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnifiedCursor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407617521206665578, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639539810595808478, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639539810595808478, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2777758565254490016, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
       propertyPath: m_Name
       value: HandTrackingPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621037817322817818, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621037817322817818, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621037817322817818, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621037817322817818, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateModeDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621037817322817818, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnifiedCursor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621037817322817818, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7739200627608956890, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -701,14 +673,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7739200627608956890, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
   m_PrefabInstance: {fileID: 6339315347471415732}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8652679737003765920 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3453623029180090644, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
-  m_PrefabInstance: {fileID: 6339315347471415732}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0adfde8b8af73a14c8dddff9dd69cb64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

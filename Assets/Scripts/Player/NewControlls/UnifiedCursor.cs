@@ -12,7 +12,7 @@ public class UnifiedCursor : MonoBehaviour
     public PlayerTeam CurrentTeam;
 
     [Header("Mouse Mode Settings")]
-    [SerializeField] private LayerMask rayLayers = 193;
+    private LayerMask rayLayers;
 
     [Header("Hand Mode Settings")]
     public GameObject Fingertip;
@@ -37,9 +37,19 @@ public class UnifiedCursor : MonoBehaviour
     {
         UpdateModeDisplay();
     }
+    private void Awake()
+    {
+        // Replace with your actual layers by name
+        rayLayers = LayerMask.GetMask("Default", "Unit", "Building", "Tile");
+    }
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("[BUILD DEBUG] Mouse click received");
+            System.IO.File.AppendAllText(Application.persistentDataPath + "/debug_clicks.txt", $"Mouse click at {Time.time}\n");
+        }
         // Toggle input mode on T key
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -90,7 +100,7 @@ public class UnifiedCursor : MonoBehaviour
 
         if (Physics.Raycast(cursorRay, out cursorHit, Mathf.Infinity, rayLayers))
         {
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetMouseButtonDown(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
                 GameManager.SelectionChanged?.Invoke();
 
