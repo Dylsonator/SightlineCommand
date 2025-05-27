@@ -31,9 +31,11 @@ public class FingerLine : MonoBehaviour //done by Dylan
         {
             RayLine.SetPosition(1, Hit.point);
 
-            if (LastHit != null) { 
-            MeshRenderer lastrenderer = LastHit.GetComponent<MeshRenderer>();
-                if (lastrenderer != null && Origin != null) {
+            if (LastHit != null)
+            {
+                MeshRenderer lastrenderer = LastHit.GetComponent<MeshRenderer>();
+                if (lastrenderer != null && Origin != null)
+                {
                     lastrenderer.material = Origin;
                 }
             }
@@ -44,18 +46,20 @@ public class FingerLine : MonoBehaviour //done by Dylan
                 Material HighlightMaterial = new Material(renderer.material);
                 HighlightMaterial.shader = Highlight;
 
-                if (HighlightMaterial.HasProperty("_BaseText"){
+                if (HighlightMaterial.HasProperty("_BaseText")){
                     Texture originalTexture = Origin.mainTexture;
                     HighlightMaterial.SetTexture("_BaseText", originalTexture);
                 }
                 renderer.material = HighlightMaterial;
-                    
+
                 LastHit = Hit.transform;
             }
-
-            Hit.transform.gameObject.GetComponent<MeshRenderer>().material.shader = Highlight;
-        }
-        else //
+            if (Hit.transform.parent.GetComponent<Tile>() == true)
+            {
+                Hit.transform.gameObject.GetComponent<MeshRenderer>().material.shader = Highlight;
+            }
+            }
+            else //
         {
             RayLine.SetPosition(1, OriginFinger + (Fingertip.transform.right * 500f));
 
@@ -65,10 +69,10 @@ public class FingerLine : MonoBehaviour //done by Dylan
                 if (lastRenderer != null && Origin != null)
                 {
                     lastRenderer.material = Origin;
-                    
+
                 }
                 LastHit = null;
-                Origin = null;                 
+                Origin = null;
             }
         }
     }
