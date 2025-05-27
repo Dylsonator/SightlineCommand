@@ -129,7 +129,7 @@ public class Unit : MonoBehaviour
             model.rotation = Quaternion.Euler(0, angle, 0);
             yield return null;
             difference = Mathf.Abs(angle - endRot);
-            Debug.Log($"{angle} - {endRot} = {Mathf.Abs(angle - endRot)}");
+            //Debug.Log($"{angle} - {endRot} = {Mathf.Abs(angle - endRot)}");
         }
         Debug.Log(attack);
         if (attack) {
