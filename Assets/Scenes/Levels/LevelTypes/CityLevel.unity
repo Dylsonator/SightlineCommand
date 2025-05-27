@@ -2517,6 +2517,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.07411177
       objectReference: {fileID: 0}
+    - target: {fileID: 3944538087364814040, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: Highlight
+      value: 
+      objectReference: {fileID: -6465566751694194690, guid: 35a49fbe67f2a054f8949bd487e38434, type: 3}
+    - target: {fileID: 3944538087364814040, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
+      propertyPath: highlightshader
+      value: 
+      objectReference: {fileID: -6465566751694194690, guid: 35a49fbe67f2a054f8949bd487e38434, type: 3}
     - target: {fileID: 4128020889357542954, guid: c04e2a63de98056449083f48e6ad7bab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.048462167
@@ -6297,11 +6305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6444937635246902805, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -234.16313
+      value: -234.1631
       objectReference: {fileID: 0}
     - target: {fileID: 6444937635246902805, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 417.11746
+      value: 417.11755
       objectReference: {fileID: 0}
     - target: {fileID: 7394047827183422037, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_Name
@@ -6485,7 +6493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097097533654116417, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 279.5664
+      value: 228.62807
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
