@@ -11,6 +11,7 @@ TagManager:
   - Team2
   - MainCanvas
   - GameManager
+  - Hand
   layers:
   - Default
   - TransparentFX

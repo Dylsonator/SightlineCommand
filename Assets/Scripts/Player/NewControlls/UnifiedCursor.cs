@@ -2,11 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections.Generic;
 
 public class UnifiedCursor : MonoBehaviour
 {
+    [SerializeField] private FingerLine fingerLine;
+
     public enum InputMode { Mouse, HandTracking }
-    public InputMode currentInputMode = InputMode.Mouse;
+    public static UnifiedCursor.InputMode GlobalInputMode = InputMode.Mouse;
 
     [Header("Common")]
     public PlayerTeam CurrentTeam;
@@ -20,6 +23,7 @@ public class UnifiedCursor : MonoBehaviour
 
     [Header("UI & State")]
     public TextMeshProUGUI modeDisplay;
+    private List<GameObject> Hands = new List<GameObject>();
 
     // Selection state
     private Unit activeUnit = null;
@@ -37,10 +41,11 @@ public class UnifiedCursor : MonoBehaviour
     {
         UpdateModeDisplay();
     }
-    private void Awake()
+        private void Awake()
     {
         // Replace with your actual layers by name
         rayLayers = LayerMask.GetMask("Default", "Unit", "Building", "Tile");
+        
     }
 
     private void Update()
@@ -53,19 +58,30 @@ public class UnifiedCursor : MonoBehaviour
         // Toggle input mode on T key
         if (Input.GetKeyDown(KeyCode.T))
         {
-            currentInputMode = currentInputMode == InputMode.Mouse ? InputMode.HandTracking : InputMode.Mouse;
+            GlobalInputMode = GlobalInputMode == InputMode.Mouse ? InputMode.HandTracking : InputMode.Mouse;
             ClearAll();
             UpdateModeDisplay();
-            Debug.Log("Switched input mode to: " + currentInputMode);
+            Debug.Log("Switched input mode to: " + GlobalInputMode);
+            if (fingerLine != null)
+            {
+                fingerLine.SetActive(GlobalInputMode == InputMode.HandTracking);
+            }
         }
 
-        switch (currentInputMode)
+        switch (GlobalInputMode)
         {
             case InputMode.Mouse:
+                for (int i = 0; i < Hands.Count; i++) {                    
+                    Hands[i].GetComponent<FingerLine>().enabled = false;
+                } 
                 HandleMouseInput();
                 break;
 
             case InputMode.HandTracking:
+                for (int i = 0; i < Hands.Count; i++)
+                {
+                    Hands[i].GetComponent<FingerLine>().enabled = true;
+                }
                 HandleHandInput();
                 break;
         }
@@ -75,7 +91,7 @@ public class UnifiedCursor : MonoBehaviour
     public void UpdateModeDisplay(int modeIndex)
     {        
         SetBehaviour(modeIndex);
-        modeDisplay.text = "Input Mode:" + currentInputMode + "\n Current Mode: " + currentMode;
+        modeDisplay.text = "Input Mode:" + GlobalInputMode + "\n Current Mode: " + currentMode;
       
     }
 
@@ -83,7 +99,7 @@ public class UnifiedCursor : MonoBehaviour
     private void UpdateModeDisplay()
     {
         if (modeDisplay != null)
-            modeDisplay.text = "Input Mode:" + currentInputMode + "\n Current Mode: " + currentMode;
+            modeDisplay.text = "Input Mode:" + GlobalInputMode + "\n Current Mode: " + currentMode;
     }
 
     // ----------- MOUSE MODE --------------
@@ -93,6 +109,28 @@ public class UnifiedCursor : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             RightClickBehaviour();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log($"[DEBUG] Mouse click detected at {Input.mousePosition}");
+
+            if (Camera.main == null)
+            {
+                Debug.LogError("[ERROR] Camera.main is NULL in build.");
+                return;
+            }
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, rayLayers))
+            {
+                Debug.Log($"[DEBUG] HIT: {hit.collider.name}, tag: {hit.collider.tag}, layer: {hit.collider.gameObject.layer}");
+            }
+            else
+            {
+                Debug.LogWarning("[DEBUG] Raycast missed — no collider hit.");
+            }
         }
 
         Ray cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
