@@ -12,7 +12,8 @@ public class UnifiedCursor : MonoBehaviour
     public static UnifiedCursor.InputMode GlobalInputMode = InputMode.Mouse;
 
     [Header("Common")]
-    public PlayerTeam CurrentTeam;
+    public PlayerTeam CurrentTeam;    
+    public TutorialCursor TutorialCursor;
 
     [Header("Mouse Mode Settings")]
     private LayerMask rayLayers;
@@ -110,28 +111,6 @@ public class UnifiedCursor : MonoBehaviour
         {
             RightClickBehaviour();
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log($"[DEBUG] Mouse click detected at {Input.mousePosition}");
-
-            if (Camera.main == null)
-            {
-                Debug.LogError("[ERROR] Camera.main is NULL in build.");
-                return;
-            }
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, rayLayers))
-            {
-                Debug.Log($"[DEBUG] HIT: {hit.collider.name}, tag: {hit.collider.tag}, layer: {hit.collider.gameObject.layer}");
-            }
-            else
-            {
-                Debug.LogWarning("[DEBUG] Raycast missed — no collider hit.");
-            }
-        }
 
         Ray cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit cursorHit;
@@ -146,6 +125,10 @@ public class UnifiedCursor : MonoBehaviour
                 {
                     case "Unit":
                         UnitClickBehaviour(cursorHit.collider.GetComponentInParent<Unit>());
+                        if (TutorialCursor != null)
+                        {
+                            TutorialCursor.NotifyUnitSelected();
+                        }
                         break;
 
                     case "Tile":
@@ -154,6 +137,10 @@ public class UnifiedCursor : MonoBehaviour
 
                     case "Building":
                         BuildingClickBehaviour(cursorHit.collider.GetComponent<Building>());
+                        if (TutorialCursor != null)
+                        {
+                            TutorialCursor.NotifyBuildPerformed();
+                        }
                         break;
                 }
             }
@@ -176,6 +163,10 @@ public class UnifiedCursor : MonoBehaviour
             {
                 case "Unit":
                     UnitClickBehaviour(fingerHit.collider.GetComponentInParent<Unit>());
+                    if (TutorialCursor != null)
+                    {
+                        TutorialCursor.NotifyUnitSelected();
+                    }
                     break;
 
                 case "Tile":
@@ -184,7 +175,11 @@ public class UnifiedCursor : MonoBehaviour
 
                 case "Building":
                     BuildingClickBehaviour(fingerHit.collider.GetComponent<Building>());
-                    break;
+                    if (TutorialCursor != null)
+                    {
+                        TutorialCursor.NotifyBuildPerformed();
+                    }
+                        break;
             }
         }
     }

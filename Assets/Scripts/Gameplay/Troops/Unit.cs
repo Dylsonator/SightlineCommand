@@ -55,6 +55,8 @@ public class Unit : MonoBehaviour
     private List<Tile> tilesTargetted = new List<Tile>();
     private List<PathTile> tilesPath = new List<PathTile>();
 
+    private TutorialCursor TutorialCursor;
+
     private Tile tileHighlighted;
     private Unit enemyUnit;
     private Building enemyBuilding;
@@ -65,6 +67,7 @@ public class Unit : MonoBehaviour
 
     public void Start()
     {
+        TutorialCursor = Camera.main.GetComponent<TutorialCursor>();
         CurrentAttacks = MaxAttack;
         CurrentMoveableCol = moveableCol[0]; //sets up the moveable material
         CurrentMove = MaxMovement;
@@ -81,6 +84,7 @@ public class Unit : MonoBehaviour
     //Movement///////////////////////////////////////////// Base Movement done by Nate, Limiting Movement Distance and changing movement material Done By Dylan
     public void UnitSpawn(Tile tile)
     {
+        
         tile.unitHere = this;
 
         if (GameManager.Instance != null && !GameManager.Instance.editorStart) {
@@ -95,6 +99,10 @@ public class Unit : MonoBehaviour
     }
     public void MoveToTile(Tile tile, bool animate = false)
     {
+        if (TutorialCursor != null)
+        {
+            TutorialCursor.NotifyMovePerformed();
+        }
         currentTile = tile;
         tile.UnitMovedHere?.Invoke(this);
         if (animate) {
@@ -323,6 +331,10 @@ public class Unit : MonoBehaviour
     //End Of Damage and Targeting///////////////////////////// Done By Dylan
 
     public void Attack(Vector3 attackPos) {
+        if (TutorialCursor != null)
+        {
+            TutorialCursor.NotifyAttackPerformed();
+        }
         EndTargeting();
         attackPos.y += scale * 0.5f;
         StopCoroutine("RotateToTarget");

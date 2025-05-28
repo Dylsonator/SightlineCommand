@@ -20,8 +20,12 @@ public class BuyMenu : MonoBehaviour {
 
     public UnitCamp building;
     public Unit unit;
+    private TutorialCursor tutorialCursor;
 
-
+    private void Awake()
+    {
+        tutorialCursor = Camera.main.GetComponent<TutorialCursor>();
+    }
     public void InitializeBuilding(UnitCamp source) {
         building = source;
         for (int i = 0; i < building.availableUnits.units.Count; i++) { 
@@ -65,6 +69,10 @@ public class BuyMenu : MonoBehaviour {
 
     public void BuildingSelected(Building building) {
         if (unit.CreateBuilding(building)) {
+            if (tutorialCursor != null)
+            {
+                tutorialCursor.NotifyBuildingCreate();
+            }
             GameManager.Instance.gameUI.HideBuildingBuyMenu();
         } else {
             StartCoroutine(ShowError("Insufficient Materials!"));

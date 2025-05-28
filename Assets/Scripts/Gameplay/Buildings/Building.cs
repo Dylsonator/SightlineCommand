@@ -30,8 +30,11 @@ public class Building : MonoBehaviour {
     [HideInInspector] public int health;
     private HealthBar healthBar;
     private SpriteRenderer unitIndicator;
+    private TutorialCursor tutorialCursor;
 
     protected virtual void Awake() {
+        tutorialCursor = Camera.main.GetComponent<TutorialCursor>();
+        
         health = maxHealth;
         healthBar = GetComponentInChildren<HealthBar>();
         healthBar.DisplaySpecified(maxHealth, maxHealth, team, true);

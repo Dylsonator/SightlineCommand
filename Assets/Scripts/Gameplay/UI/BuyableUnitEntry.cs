@@ -8,10 +8,14 @@ public class BuyableUnitEntry : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI unitName;
     [SerializeField] private TextMeshProUGUI unitStats;
     [SerializeField] private TextMeshProUGUI buyStats;
+    private TutorialCursor tutorialCursor;
 
     private Unit unit;
     private BuyMenu buyMenu;
-
+    private void Awake()
+    {
+        tutorialCursor = Camera.main.GetComponent<TutorialCursor>();
+    }
     public void Initialize(Unit newUnit, BuyMenu source) {
         unit = newUnit;
 
@@ -25,5 +29,9 @@ public class BuyableUnitEntry : MonoBehaviour {
 
     public void OptionSelected() {
         buyMenu.UnitSelected(unit);
+        if (tutorialCursor != null)
+        {
+            tutorialCursor.NotifyUnitHired();
+        }
     }
 }

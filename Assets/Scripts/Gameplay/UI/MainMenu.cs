@@ -19,13 +19,11 @@ public class MainMenu : MonoBehaviour //made by Dylan
     private void Awake()
     {
         FirstGame = PlayerPrefs.GetInt("FirstTimeCheck"); //checks if the first time opening the game to force player into tutorial
-    }
-    public void Start()
-    {
         if (FirstGame == 0)
         {
-            SceneManager.LoadScene(2);
             PlayerPrefs.SetInt("FirstTimeCheck", 1); //first time check done here
+            SceneManager.LoadScene(2);
+            
         }
     }
 
@@ -43,7 +41,7 @@ public class MainMenu : MonoBehaviour //made by Dylan
     }//basic loading scenes depending on buttons
     public void MainMenuScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void TutorialScene()
     {
