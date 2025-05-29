@@ -374,10 +374,10 @@ MonoBehaviour:
   canActivate: 0
   unitsHere: []
   tile: {fileID: 0}
-  unitInCreation: {fileID: 0}
-  turnsToCreate: 0
   health: 0
   availableUnits: {fileID: 11400000, guid: 35a57f8aff6db7c4f9b2cb0ef9ef875a, type: 2}
+  unitInCreation: {fileID: 0}
+  turnsToCreate: 0
 --- !u!1001 &4317637540446626273
 PrefabInstance:
   m_ObjectHideFlags: 0

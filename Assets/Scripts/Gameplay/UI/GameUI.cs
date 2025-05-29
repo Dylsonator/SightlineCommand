@@ -16,7 +16,7 @@ public class GameUI : MonoBehaviour {
     private BuyMenu buyMenu;
 
 
-    private HandCursor gameCursor;
+    private UnifiedCursor gameCursor;
 
     [Header("Team UI")]
     [SerializeField]

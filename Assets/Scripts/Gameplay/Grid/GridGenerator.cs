@@ -138,7 +138,6 @@ public class GridGenerator : MonoBehaviour {
         Transform endTile = GameManager.Instance.tiles[width - 1, height - 1].transform;
         Vector2 xBounds = new Vector2(startTile.position.x, endTile.position.x);
         Vector2 zBounds = new Vector2(startTile.position.z, endTile.position.z);
-        Debug.Log($"{xBounds}, {zBounds}");
         Camera.main.GetComponent<CameraMovement>().SetInitialPosition(scale, xBounds, zBounds);
 
         //here for testing unit movement

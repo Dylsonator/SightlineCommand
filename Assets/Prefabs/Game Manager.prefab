@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridGenerator: {fileID: 0}
-  gameCursor: {fileID: 0}
+  gameCursor: {fileID: 8977888492184650884}
   gameUI: {fileID: 0}
+  borders: []
   editorStart: 0
 --- !u!114 &7082723257312519436
 MonoBehaviour:
@@ -74,12 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7809c99526566c14c94e786d35afaeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInputMode: 0
+  fingerLine: {fileID: 0}
   CurrentTeam: 0
-  rayLayers:
-    serializedVersion: 2
-    m_Bits: 193
+  TutorialCursor: {fileID: 0}
   Fingertip: {fileID: 0}
   handRayDistance: 500
   modeDisplay: {fileID: 0}
   currentMode: 0
+  active: 0

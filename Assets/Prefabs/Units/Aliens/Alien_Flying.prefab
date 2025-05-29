@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien_Flying
       objectReference: {fileID: 0}
+    - target: {fileID: 5477471966950854349, guid: d01275f7858801f4ca78ae1dbee695b9, type: 3}
+      propertyPath: m_TagString
+      value: Unit
+      objectReference: {fileID: 0}
     - target: {fileID: 5636948268854509101, guid: d01275f7858801f4ca78ae1dbee695b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

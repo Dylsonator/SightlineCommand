@@ -1696,6 +1696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Human_TyrannisMK3
       objectReference: {fileID: 0}
+    - target: {fileID: 5477471966950854349, guid: d01275f7858801f4ca78ae1dbee695b9, type: 3}
+      propertyPath: m_TagString
+      value: Unit
+      objectReference: {fileID: 0}
     - target: {fileID: 8397045034945365649, guid: d01275f7858801f4ca78ae1dbee695b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

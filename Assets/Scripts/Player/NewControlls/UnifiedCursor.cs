@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class UnifiedCursor : MonoBehaviour
 {
@@ -13,14 +14,14 @@ public class UnifiedCursor : MonoBehaviour
 
     [Header("Common")]
     public PlayerTeam CurrentTeam;    
-    public TutorialCursor TutorialCursor;
+    public TutorialCursor TutorialCursor = null;
 
-    [Header("Mouse Mode Settings")]
+    [SerializeField, Header("Mouse Mode Settings")]
     private LayerMask rayLayers;
 
     [Header("Hand Mode Settings")]
     public GameObject Fingertip;
-    public float handRayDistance = 500f;
+    public float handRayDistance = Mathf.Infinity;
 
     [Header("UI & State")]
     public TextMeshProUGUI modeDisplay;
@@ -38,6 +39,11 @@ public class UnifiedCursor : MonoBehaviour
     // Internal
     private bool handSelectionCheck = false;
 
+    private bool canSelect = true;
+    private bool canDeselect = true;
+
+    public bool active;
+
     private void Start()
     {
         UpdateModeDisplay();
@@ -45,17 +51,12 @@ public class UnifiedCursor : MonoBehaviour
         private void Awake()
     {
         // Replace with your actual layers by name
-        rayLayers = LayerMask.GetMask("Default", "Unit", "Building", "Tile");
-        
+        rayLayers = LayerMask.GetMask("Default", "Unit", "Building");
+        Debug.Log(rayLayers.value);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("[BUILD DEBUG] Mouse click received");
-            System.IO.File.AppendAllText(Application.persistentDataPath + "/debug_clicks.txt", $"Mouse click at {Time.time}\n");
-        }
         // Toggle input mode on T key
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -67,23 +68,36 @@ public class UnifiedCursor : MonoBehaviour
             {
                 fingerLine.SetActive(GlobalInputMode == InputMode.HandTracking);
             }
+            switch (GlobalInputMode)
+            {
+                case InputMode.Mouse:
+                    for (int i = 0; i < Hands.Count; i++)
+                    {
+                        Hands[i].GetComponent<FingerLine>().enabled = false;
+                    }
+                    break;
+
+                case InputMode.HandTracking:
+                    for (int i = 0; i < Hands.Count; i++)
+                    {
+                        Hands[i].GetComponent<FingerLine>().enabled = true;
+                    }
+                    break;
+            }
         }
 
+        if (!active)
+        {
+            return;
+        }
         switch (GlobalInputMode)
         {
             case InputMode.Mouse:
-                for (int i = 0; i < Hands.Count; i++) {                    
-                    Hands[i].GetComponent<FingerLine>().enabled = false;
-                } 
-                HandleMouseInput();
+                HandleMouseInput();                                
                 break;
 
             case InputMode.HandTracking:
-                for (int i = 0; i < Hands.Count; i++)
-                {
-                    Hands[i].GetComponent<FingerLine>().enabled = true;
-                }
-                HandleHandInput();
+                HandleHandInput();                         
                 break;
         }
     }
@@ -92,8 +106,7 @@ public class UnifiedCursor : MonoBehaviour
     public void UpdateModeDisplay(int modeIndex)
     {        
         SetBehaviour(modeIndex);
-        modeDisplay.text = "Input Mode:" + GlobalInputMode + "\n Current Mode: " + currentMode;
-      
+        modeDisplay.text = "Input Mode:" + GlobalInputMode + "\n Current Mode: " + currentMode;      
     }
 
     // Private method to update the UI text only (called internally)
@@ -115,8 +128,11 @@ public class UnifiedCursor : MonoBehaviour
         Ray cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit cursorHit;
 
+        
+
         if (Physics.Raycast(cursorRay, out cursorHit, Mathf.Infinity, rayLayers))
         {
+
             if (Input.GetMouseButtonDown(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
                 GameManager.SelectionChanged?.Invoke();
@@ -151,23 +167,31 @@ public class UnifiedCursor : MonoBehaviour
 
     private void HandleHandInput()
     {
-        if (!handSelectionCheck)
-            return;
 
-        Vector3 originFinger = Fingertip.transform.position;
+        
+        if (!handSelectionCheck)
+        {
+            Debug.Log("a");
+            return;
+        }
+
+        Ray fingerRay = new Ray(Fingertip.transform.position, Fingertip.transform.right);
         RaycastHit fingerHit;
 
-        if (Physics.Raycast(originFinger, Fingertip.transform.right, out fingerHit, handRayDistance))
-        {
+        Debug.Log("b");
+        if (Physics.Raycast(fingerRay, out fingerHit, Mathf.Infinity, rayLayers)) {
+            Debug.Log(fingerHit.collider.tag);
+            Debug.Log(fingerHit.collider.name);
             switch (fingerHit.collider.tag)
             {
                 case "Unit":
                     UnitClickBehaviour(fingerHit.collider.GetComponentInParent<Unit>());
                     if (TutorialCursor != null)
                     {
+                        
                         TutorialCursor.NotifyUnitSelected();
                     }
-                    break;
+                        break;
 
                 case "Tile":
                     TileClickBehaviour(fingerHit.collider.GetComponentInParent<Tile>());
@@ -181,29 +205,44 @@ public class UnifiedCursor : MonoBehaviour
                     }
                         break;
             }
+            handSelectionCheck = false;
+            canSelect = true;
         }
     }
 
     public void HandSelectionStart()
     {
+        Debug.Log($"Select: {canSelect}");
+        
         StartCoroutine(WaitToConfirm());
     }
 
     public void HandSelectionEnd()
-    {
+    {        
         StartCoroutine(WaitToDeselect());
     }
 
     private IEnumerator WaitToConfirm()
     {
+        while (!canSelect) {
+            yield return null;
+        }
+        
+        canDeselect = false;
         handSelectionCheck = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
+        canDeselect = true;
     }
 
     private IEnumerator WaitToDeselect()
     {
+        while (!canDeselect) {
+            yield return null;
+        }
+        canSelect = false;
         handSelectionCheck = false;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
+        canSelect = true;
     }
 
     // ----------- COMMON SELECTION BEHAVIOURS -----------

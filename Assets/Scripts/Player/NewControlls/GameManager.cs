@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance {  get; private set; }
 
     public GridGenerator gridGenerator;
-    public HandCursor gameCursor;
+    public UnifiedCursor gameCursor;
     public GameUI gameUI; //change these to gameUI/cursor For Mouse Controls
 
     public Dictionary<PlayerTeam, PlayerStats> players = new Dictionary<PlayerTeam, PlayerStats>();
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame() {
         gameCursor.CurrentTeam = PlayerTeam.HUMAN;
-        gameCursor.CLEARALL();
+        gameCursor.ClearAll();
         gameUI.UpdateModeDisplay(0);
         gameUI.UpdateTeamDisplay();
         players[PlayerTeam.HUMAN].Destroy();

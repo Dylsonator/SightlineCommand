@@ -14,7 +14,7 @@ public class BuildingUnitEntry : MonoBehaviour {
     private Unit unit;
     private Building building;
 
-    private HandCursor gameCursor;
+    private UnifiedCursor gameCursor;
     private BuildingPanel buildPanel;
     private RectTransform rect;
 
@@ -33,6 +33,7 @@ public class BuildingUnitEntry : MonoBehaviour {
         
         StartCoroutine(DelayPosition(position));
     }
+
 
     //Due to a bug, the first time the entries are displayed, they are set to the wrong position.
     //This coroutine delays the action of setting its position by a frame, circumventing this issue.
