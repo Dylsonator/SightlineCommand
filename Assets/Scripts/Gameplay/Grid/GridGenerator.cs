@@ -63,12 +63,13 @@ public class GridGenerator : MonoBehaviour {
     public void GenerateGrid() {
         GameManager.Instance.SetGridSize(width, height);
 
-        Vector3 position = new Vector3(0, 0, 0);
+        Vector3 position = new Vector3(0, 1, 0);
 
         float xOffset = (width * scale * gapScale) / 2;
         float zOffset = (height * scale * gapScale) / 2;
 
-        Camera.main.GetComponent<CameraMovement>().SetInitialPosition(scale);
+        Vector2 xBounds = new Vector2();
+        Vector2 yBounds = new Vector2();
 
         //Hexagon generation adapted from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
         for (int x = 0; x < width; x++) {
@@ -113,7 +114,8 @@ public class GridGenerator : MonoBehaviour {
                 }
             }
         }
-        
+
+        Camera.main.GetComponent<CameraMovement>().SetInitialPosition(scale, xBounds, yBounds);
 
         //here for testing unit movement
 
