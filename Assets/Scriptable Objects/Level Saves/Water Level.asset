@@ -615,5 +615,5 @@ MonoBehaviour:
     coords: {x: 9, y: 9}
   width: 10
   height: 10
-  scale: 10
+  scale: 2
   gapScale: 1.025
