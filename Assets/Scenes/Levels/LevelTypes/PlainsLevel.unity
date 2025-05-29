@@ -1831,7 +1831,7 @@ Camera:
   m_GameObject: {fileID: 1344728086}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1881,13 +1881,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344728086}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
   m_LocalPosition: {x: 10.96084, y: 30.82666, z: 3007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
 --- !u!1 &1608857426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,11 +2181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6444937635246902805, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -234.16226
+      value: -234.16293
       objectReference: {fileID: 0}
     - target: {fileID: 6444937635246902805, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 417.11658
+      value: 417.11734
       objectReference: {fileID: 0}
     - target: {fileID: 6666389797308021849, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: canvas
@@ -2280,8 +2280,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9097097533654116417, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00078137696
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097097533654116417, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 228.62749
+      value: 228.62811
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6118338254904241934, guid: 643577c1059446b44bdb91b856e5a2b8, type: 3}
