@@ -65,9 +65,12 @@ public class FingerLine : MonoBehaviour
                 Material highlightMat = new Material(originalMaterial);
                 highlightMat.shader = Highlight;
 
+                highlightMat.SetFloat("_Selectable", currentHit.CompareTag("Border") ? 0 : 1);
+
                 if (highlightMat.HasProperty("_BaseText"))
                 {
                     highlightMat.SetTexture("_BaseText", originalMaterial.mainTexture);
+                    
                 }
 
                 currentRenderer.material = highlightMat;
