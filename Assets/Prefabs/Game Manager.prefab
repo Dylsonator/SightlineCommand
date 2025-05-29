@@ -78,8 +78,11 @@ MonoBehaviour:
   fingerLine: {fileID: 0}
   CurrentTeam: 0
   TutorialCursor: {fileID: 0}
+  rayLayers:
+    serializedVersion: 2
+    m_Bits: 0
   Fingertip: {fileID: 0}
-  handRayDistance: 500
+  handRayDistance: 10000
   modeDisplay: {fileID: 0}
   currentMode: 0
   active: 0

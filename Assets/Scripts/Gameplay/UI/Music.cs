@@ -51,8 +51,10 @@ public class Music : MonoBehaviour //made by Dylan
     }
     public void ChangeVolume()
     {
-        AudioListener.volume = Slider.value;
-        PlayerPrefs.SetFloat("Volume", Slider.value);
+        if (Slider != null)
+        {
+            AudioListener.volume = Slider.value;
+            PlayerPrefs.SetFloat("Volume", Slider.value);
+        }
     }
-    
 }

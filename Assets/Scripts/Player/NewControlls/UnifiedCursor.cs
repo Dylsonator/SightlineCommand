@@ -169,52 +169,7 @@ public class UnifiedCursor : MonoBehaviour
         }
     }
 
-    // ----------- HAND MODE -------------
 
-    //private void HandleHandInput()
-    //{
-
-        
-    //    if (!handSelectionCheck)
-    //    {
-    //        Debug.Log("a");
-    //        return;
-    //    }
-
-    //    Ray fingerRay = new Ray(Fingertip.transform.position, Fingertip.transform.right);
-    //    RaycastHit fingerHit;
-
-    //    Debug.Log("b");
-    //    if (Physics.Raycast(fingerRay, out fingerHit, Mathf.Infinity, rayLayers)) {
-    //        Debug.Log(fingerHit.collider.tag);
-    //        Debug.Log(fingerHit.collider.name);
-    //        switch (fingerHit.collider.tag)
-    //        {
-    //            case "Unit":
-    //                UnitClickBehaviour(fingerHit.collider.GetComponentInParent<Unit>());
-    //                if (TutorialCursor != null)
-    //                {
-                        
-    //                    TutorialCursor.NotifyUnitSelected();
-    //                }
-    //                    break;
-
-    //            case "Tile":
-    //                TileClickBehaviour(fingerHit.collider.GetComponentInParent<Tile>());
-    //                break;
-
-    //            case "Building":
-    //                BuildingClickBehaviour(fingerHit.collider.GetComponent<Building>());
-    //                if (TutorialCursor != null)
-    //                {
-    //                    TutorialCursor.NotifyBuildPerformed();
-    //                }
-    //                    break;
-    //        }
-    //        handSelectionCheck = false;
-    //        canSelect = true;
-    //    }
-    //}
 
     public void HandSelectionStart()
     {
@@ -427,7 +382,7 @@ public class UnifiedCursor : MonoBehaviour
     private IEnumerator ModeSwapCooldown()
     {
         canSwapMode = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.5f);
         canSwapMode = true;
     }
 

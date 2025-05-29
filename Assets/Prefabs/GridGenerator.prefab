@@ -49,14 +49,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e4c449be534f374da16f61e7f63cb41, type: 2}
   - {fileID: 11400000, guid: e298130d8e0f7904ba026d129a4b3bc4, type: 2}
   - {fileID: 11400000, guid: ff1687c5959b5e8489c9c259df964941, type: 2}
-  levelSave: {fileID: 0}
+  levelSave: {fileID: 11400000, guid: 263ab103fed17284a99a7bc19aec11df, type: 2}
   scale: 10
-  gapScale: 1
+  gapScale: 1.2
   width: 8
   height: 10
   humanFOB: {fileID: -8307384421736121945, guid: 724a03601f91c6940b68d964356b994c, type: 3}
   alienFOB: {fileID: -8307384421736121945, guid: a029cc9fe8632de4b88076cbbe2a084d, type: 3}
-  testUnits: 1
+  testUnits: 0
   Humanunit: {fileID: 3734930054502818528, guid: 5a51f050645416f40b22c2041806e27e, type: 3}
   Alienunit: {fileID: 39589110105085414, guid: b7cae24eb92fd8c4caa924588987f263, type: 3}
   testSoldierAmount: 5
