@@ -10,6 +10,9 @@ public class Buttonclick : MonoBehaviour
 
     public void clickbutton()
     {
-        source.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
+        if (source != null) {
+            source.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
+        }
+        
     }
 }
