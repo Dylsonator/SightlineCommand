@@ -12,6 +12,7 @@ TagManager:
   - MainCanvas
   - GameManager
   - Hand
+  - Border
   layers:
   - Default
   - TransparentFX
