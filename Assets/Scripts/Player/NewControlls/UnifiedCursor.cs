@@ -136,8 +136,6 @@ public class UnifiedCursor : MonoBehaviour
 
     private void RaycastSelect(Ray ray) {
         RaycastHit rayHit;
-        Debug.Log("ray");
-        Debug.DrawRay(ray.origin, ray.direction, Color.green, 10);
         if (Physics.Raycast(ray, out rayHit, Mathf.Infinity, rayLayers))
         {
             Debug.Log(rayHit.collider.tag);
