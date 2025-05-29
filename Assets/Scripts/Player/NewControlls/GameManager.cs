@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
 
     public Dictionary<PlayerTeam, PlayerStats> players = new Dictionary<PlayerTeam, PlayerStats>();
     public Tile[,] tiles;
+    public List<GameObject> borders;
 
     public static Action SelectionChanged;
 
@@ -41,11 +42,15 @@ public class GameManager : MonoBehaviour {
 
     public void SetGridSize(int x, int z) {
         tiles = new Tile[x, z];
+        borders = new List<GameObject>();
     }
 
     public void ClearTiles() {
         foreach (var tile in tiles) {
             Destroy(tile.gameObject);
+        }
+        foreach (var border in borders) {
+            Destroy(border);
         }
     }
 

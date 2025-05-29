@@ -53,11 +53,9 @@ public class CameraMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.E)) {
             newPos.y += Time.deltaTime * speed;
         }
-        Debug.Log(newPos);
         newPos.x = Mathf.Clamp(newPos.x, xBounds.x, xBounds.y);
         newPos.z = Mathf.Clamp(newPos.z, zBounds.x, zBounds.y);
-        newPos.y = Mathf.Clamp(newPos.y, 5, 30);
-        Debug.Log(newPos);
+        newPos.y = Mathf.Clamp(newPos.y, 5, 15);
 
         transform.position = newPos;
     }

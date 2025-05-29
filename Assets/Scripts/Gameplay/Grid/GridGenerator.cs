@@ -43,6 +43,9 @@ public class GridGenerator : MonoBehaviour {
     [HideInInspector]
     public bool inEditor = false;
 
+    private GameObject tilePrefab;
+    private GameObject borderPrefab;
+
     private void Awake() {
         if (levelSave != null) {
             scale = levelSave.scale;
@@ -57,6 +60,8 @@ public class GridGenerator : MonoBehaviour {
             }
         }
         gridParent = new GameObject("Grid");
+        tilePrefab = (GameObject)Resources.Load("HexTile");
+        borderPrefab = (GameObject)Resources.Load("BorderTile");
     }
     
 
@@ -75,7 +80,6 @@ public class GridGenerator : MonoBehaviour {
             for (int z = 0; z < height; z++) {
                 position.x = ((x + z * 0.5f - z / 2) * scale * gapScale) - xOffset;
                 position.z = (z * 0.866f * scale * gapScale) - zOffset;
-                GameObject tilePrefab = (GameObject)Resources.Load("HexTile");
                 GameObject gridTile = Instantiate(tilePrefab, gridParent.transform);
                 gridTile.transform.localPosition = position;
                 gridTile.transform.localScale = new Vector3(scale, scale, scale);
@@ -92,7 +96,22 @@ public class GridGenerator : MonoBehaviour {
                 tileScript.coords = new Vector2(x, z);
             }
         }
-        
+
+        for (int x = -8; x < width + 8; x++) {
+            for (int z = -4; z < height + 4; z++) {
+                if (x >= 0 && x < width && z >= 0 && z < height) {
+                    continue;
+                }
+                position.x = ((x + z * 0.5f - z / 2) * scale * gapScale) - xOffset;
+                position.z = (z * 0.866f * scale * gapScale) - zOffset;
+                GameObject borderTile = Instantiate(borderPrefab, gridParent.transform);
+                borderTile.transform.localPosition = position;
+                borderTile.transform.localScale = new Vector3(scale, scale, scale);
+
+                GameManager.Instance.borders.Add(borderTile);
+            }
+        }
+
         foreach (Tile tile in GameManager.Instance.tiles) {
             int x = (int)tile.coords.x;
             int z = (int)tile.coords.y;
