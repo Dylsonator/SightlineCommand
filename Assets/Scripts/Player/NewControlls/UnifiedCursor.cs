@@ -39,8 +39,7 @@ public class UnifiedCursor : MonoBehaviour
     // Internal
     private bool handSelectionCheck = false;
 
-    private bool canSelect = true;
-    private bool canDeselect = true;
+    private bool canSwapMode = true;
 
     public bool active;
 
@@ -97,7 +96,7 @@ public class UnifiedCursor : MonoBehaviour
                 break;
 
             case InputMode.HandTracking:
-                HandleHandInput();                         
+                //HandleHandInput();                         
                 break;
         }
     }
@@ -126,124 +125,136 @@ public class UnifiedCursor : MonoBehaviour
         }
 
         Ray cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit cursorHit;
-
         
 
-        if (Physics.Raycast(cursorRay, out cursorHit, Mathf.Infinity, rayLayers))
+
+        if (Input.GetMouseButtonDown(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
         {
+            RaycastSelect(cursorRay);
+        }
+    }
 
-            if (Input.GetMouseButtonDown(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
+    private void RaycastSelect(Ray ray) {
+        RaycastHit rayHit;
+        Debug.Log("ray");
+        Debug.DrawRay(ray.origin, ray.direction, Color.green, 10);
+        if (Physics.Raycast(ray, out rayHit, Mathf.Infinity, rayLayers))
+        {
+            Debug.Log(rayHit.collider.tag);
+            Debug.Log(rayHit.collider.name);
+            GameManager.SelectionChanged?.Invoke();
+
+            switch (rayHit.collider.tag)
             {
-                GameManager.SelectionChanged?.Invoke();
+                case "Unit":
+                    UnitClickBehaviour(rayHit.collider.GetComponentInParent<Unit>());
+                    if (TutorialCursor != null)
+                    {
+                        TutorialCursor.NotifyUnitSelected();
+                    }
+                    break;
 
-                switch (cursorHit.collider.tag)
-                {
-                    case "Unit":
-                        UnitClickBehaviour(cursorHit.collider.GetComponentInParent<Unit>());
-                        if (TutorialCursor != null)
-                        {
-                            TutorialCursor.NotifyUnitSelected();
-                        }
-                        break;
+                case "Tile":
+                    TileClickBehaviour(rayHit.collider.GetComponentInParent<Tile>());
+                    break;
 
-                    case "Tile":
-                        TileClickBehaviour(cursorHit.collider.GetComponentInParent<Tile>());
-                        break;
-
-                    case "Building":
-                        BuildingClickBehaviour(cursorHit.collider.GetComponent<Building>());
-                        if (TutorialCursor != null)
-                        {
-                            TutorialCursor.NotifyBuildPerformed();
-                        }
-                        break;
-                }
+                case "Building":
+                    BuildingClickBehaviour(rayHit.collider.GetComponent<Building>());
+                    if (TutorialCursor != null)
+                    {
+                        TutorialCursor.NotifyBuildPerformed();
+                    }
+                    break;
             }
         }
     }
 
     // ----------- HAND MODE -------------
 
-    private void HandleHandInput()
-    {
+    //private void HandleHandInput()
+    //{
 
         
-        if (!handSelectionCheck)
-        {
-            Debug.Log("a");
-            return;
-        }
+    //    if (!handSelectionCheck)
+    //    {
+    //        Debug.Log("a");
+    //        return;
+    //    }
 
-        Ray fingerRay = new Ray(Fingertip.transform.position, Fingertip.transform.right);
-        RaycastHit fingerHit;
+    //    Ray fingerRay = new Ray(Fingertip.transform.position, Fingertip.transform.right);
+    //    RaycastHit fingerHit;
 
-        Debug.Log("b");
-        if (Physics.Raycast(fingerRay, out fingerHit, Mathf.Infinity, rayLayers)) {
-            Debug.Log(fingerHit.collider.tag);
-            Debug.Log(fingerHit.collider.name);
-            switch (fingerHit.collider.tag)
-            {
-                case "Unit":
-                    UnitClickBehaviour(fingerHit.collider.GetComponentInParent<Unit>());
-                    if (TutorialCursor != null)
-                    {
+    //    Debug.Log("b");
+    //    if (Physics.Raycast(fingerRay, out fingerHit, Mathf.Infinity, rayLayers)) {
+    //        Debug.Log(fingerHit.collider.tag);
+    //        Debug.Log(fingerHit.collider.name);
+    //        switch (fingerHit.collider.tag)
+    //        {
+    //            case "Unit":
+    //                UnitClickBehaviour(fingerHit.collider.GetComponentInParent<Unit>());
+    //                if (TutorialCursor != null)
+    //                {
                         
-                        TutorialCursor.NotifyUnitSelected();
-                    }
-                        break;
+    //                    TutorialCursor.NotifyUnitSelected();
+    //                }
+    //                    break;
 
-                case "Tile":
-                    TileClickBehaviour(fingerHit.collider.GetComponentInParent<Tile>());
-                    break;
+    //            case "Tile":
+    //                TileClickBehaviour(fingerHit.collider.GetComponentInParent<Tile>());
+    //                break;
 
-                case "Building":
-                    BuildingClickBehaviour(fingerHit.collider.GetComponent<Building>());
-                    if (TutorialCursor != null)
-                    {
-                        TutorialCursor.NotifyBuildPerformed();
-                    }
-                        break;
-            }
-            handSelectionCheck = false;
-            canSelect = true;
-        }
-    }
+    //            case "Building":
+    //                BuildingClickBehaviour(fingerHit.collider.GetComponent<Building>());
+    //                if (TutorialCursor != null)
+    //                {
+    //                    TutorialCursor.NotifyBuildPerformed();
+    //                }
+    //                    break;
+    //        }
+    //        handSelectionCheck = false;
+    //        canSelect = true;
+    //    }
+    //}
 
     public void HandSelectionStart()
     {
-        Debug.Log($"Select: {canSelect}");
+        if (!active)
+        {
+            return;
+        }
+        Ray fingerRay = new Ray(Fingertip.transform.position, Fingertip.transform.right);
         
-        StartCoroutine(WaitToConfirm());
+        RaycastSelect(fingerRay);    
+        //StartCoroutine(WaitToConfirm());
     }
 
     public void HandSelectionEnd()
     {        
-        StartCoroutine(WaitToDeselect());
+        //StartCoroutine(WaitToDeselect());
     }
 
-    private IEnumerator WaitToConfirm()
-    {
-        while (!canSelect) {
-            yield return null;
-        }
+    //private IEnumerator WaitToConfirm()
+    //{
+    //    while (!canSelect) {
+    //        yield return null;
+    //    }
         
-        canDeselect = false;
-        handSelectionCheck = true;
-        yield return new WaitForSeconds(1.5f);
-        canDeselect = true;
-    }
+    //    canDeselect = false;
+    //    handSelectionCheck = true;
+    //    yield return new WaitForSeconds(1.5f);
+    //    canDeselect = true;
+    //}
 
-    private IEnumerator WaitToDeselect()
-    {
-        while (!canDeselect) {
-            yield return null;
-        }
-        canSelect = false;
-        handSelectionCheck = false;
-        yield return new WaitForSeconds(1.5f);
-        canSelect = true;
-    }
+    //private IEnumerator WaitToDeselect()
+    //{
+    //    while (!canDeselect) {
+    //        yield return null;
+    //    }
+    //    canSelect = false;
+    //    handSelectionCheck = false;
+    //    yield return new WaitForSeconds(1.5f);
+    //    canSelect = true;
+    //}
 
     // ----------- COMMON SELECTION BEHAVIOURS -----------
 
@@ -396,6 +407,9 @@ public class UnifiedCursor : MonoBehaviour
     // Set mode (Attack, Move, Build, etc.) by index from UI buttons
     public void SetBehaviour(int modeIndex)
     {
+        if (GlobalInputMode == InputMode.HandTracking && !canSwapMode) {
+            return;
+        }
         UnitMode selectedMode = (UnitMode)modeIndex;
         if (currentMode == selectedMode)
         {
@@ -407,6 +421,14 @@ public class UnifiedCursor : MonoBehaviour
         }
         ClearAll();
         UpdateModeDisplay();
+        StartCoroutine(ModeSwapCooldown());
+    }
+
+    private IEnumerator ModeSwapCooldown()
+    {
+        canSwapMode = false;
+        yield return new WaitForSeconds(1);
+        canSwapMode = true;
     }
 
     public void EndTurn()

@@ -21,17 +21,21 @@ public class Music : MonoBehaviour //made by Dylan
     }
     public void MusicChange()
     {
-        if (MuteSounds == 1)
+        if (muteToggle != null)
         {
-            MusicSource.Pause(); //keeps a stored value to either mute or unmute music          
-            muteToggle.isOn = false;
+            if (MuteSounds == 1)
+            {
+                MusicSource.Pause(); //keeps a stored value to either mute or unmute music          
+                muteToggle.isOn = false;
+            }
+            if (MuteSounds == 0)
+            {
+                MusicSource.Play();
+                muteToggle.isOn = true;
+            }
         }
-        if (MuteSounds == 0) {
-            MusicSource.Play();
-            muteToggle.isOn = true;
         }
-    }
-    public void MUTE(bool Check)
+        public void MUTE(bool Check)
     {
         Check = !Check;
         if (Check == true)
