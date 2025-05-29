@@ -7,6 +7,9 @@ public class CameraMovement : MonoBehaviour {
     private int direction = 1;
     private float scale;
 
+    private Vector2 xBounds;
+    private Vector2 yBounds;
+
     private void Awake() {
         initialSpeed = speed;
         CameraChange.CameraChanged += SwapDirection;
@@ -16,8 +19,10 @@ public class CameraMovement : MonoBehaviour {
         direction *= -1;
     }
 
-    public void SetInitialPosition(float newScale) {
+    public void SetInitialPosition(float newScale, Vector2 newXBounds, Vector2 newYBounds) {
         scale = newScale;
+        xBounds = newXBounds;
+        yBounds = newYBounds;
         Vector3 newPos = transform.position;
         newPos.y = scale * 10;
         speed = initialSpeed * scale;
