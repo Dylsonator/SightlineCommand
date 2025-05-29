@@ -68,8 +68,7 @@ public class GridGenerator : MonoBehaviour {
         float xOffset = (width * scale * gapScale) / 2;
         float zOffset = (height * scale * gapScale) / 2;
 
-        Vector2 xBounds = new Vector2();
-        Vector2 yBounds = new Vector2();
+        
 
         //Hexagon generation adapted from https://catlikecoding.com/unity/tutorials/hex-map/part-1/
         for (int x = 0; x < width; x++) {
@@ -93,6 +92,7 @@ public class GridGenerator : MonoBehaviour {
                 tileScript.coords = new Vector2(x, z);
             }
         }
+        
         foreach (Tile tile in GameManager.Instance.tiles) {
             int x = (int)tile.coords.x;
             int z = (int)tile.coords.y;
@@ -115,7 +115,12 @@ public class GridGenerator : MonoBehaviour {
             }
         }
 
-        Camera.main.GetComponent<CameraMovement>().SetInitialPosition(scale, xBounds, yBounds);
+        Transform startTile = GameManager.Instance.tiles[0, 0].transform;
+        Transform endTile = GameManager.Instance.tiles[width - 1, height - 1].transform;
+        Vector2 xBounds = new Vector2(startTile.position.x, endTile.position.x);
+        Vector2 zBounds = new Vector2(startTile.position.z, endTile.position.z);
+        Debug.Log($"{xBounds}, {zBounds}");
+        Camera.main.GetComponent<CameraMovement>().SetInitialPosition(scale, xBounds, zBounds);
 
         //here for testing unit movement
 

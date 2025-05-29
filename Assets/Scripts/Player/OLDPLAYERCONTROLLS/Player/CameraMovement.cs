@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour {
     private float scale;
 
     private Vector2 xBounds;
-    private Vector2 yBounds;
+    private Vector2 zBounds;
 
     private void Awake() {
         initialSpeed = speed;
@@ -19,10 +19,10 @@ public class CameraMovement : MonoBehaviour {
         direction *= -1;
     }
 
-    public void SetInitialPosition(float newScale, Vector2 newXBounds, Vector2 newYBounds) {
+    public void SetInitialPosition(float newScale, Vector2 newXBounds, Vector2 newZBounds) {
         scale = newScale;
         xBounds = newXBounds;
-        yBounds = newYBounds;
+        zBounds = newZBounds;
         Vector3 newPos = transform.position;
         newPos.y = scale * 10;
         speed = initialSpeed * scale;
@@ -53,6 +53,11 @@ public class CameraMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.E)) {
             newPos.y += Time.deltaTime * speed;
         }
+        Debug.Log(newPos);
+        newPos.x = Mathf.Clamp(newPos.x, xBounds.x, xBounds.y);
+        newPos.z = Mathf.Clamp(newPos.z, zBounds.x, zBounds.y);
+        newPos.y = Mathf.Clamp(newPos.y, 5, 30);
+        Debug.Log(newPos);
 
         transform.position = newPos;
     }
