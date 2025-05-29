@@ -19,6 +19,10 @@ public class Music : MonoBehaviour //made by Dylan
         MusicChange();
         
     }
+    private void Update()
+    {
+        ChangeVolume();
+    }
     public void MusicChange()
     {
         if (muteToggle != null)

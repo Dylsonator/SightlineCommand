@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5020091594400485650}
   - component: {fileID: 6451004401606326696}
   - component: {fileID: 1771213180719394241}
+  - component: {fileID: 1646951370604506584}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -380,6 +381,23 @@ MonoBehaviour:
   MusicSource: {fileID: 5020091594400485650}
   muteToggle: {fileID: 0}
   Slider: {fileID: 0}
+--- !u!114 &1646951370604506584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734615504615692253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52638d8b536ece54090c02f6839d42f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Songs:
+  - {fileID: 8300000, guid: 3504d92dd48608944924a6f44f721bec, type: 3}
+  - {fileID: 8300000, guid: f32e129605a59984394dca8c4da97ae9, type: 3}
+  - {fileID: 8300000, guid: a089a2286d0b08d4b99e749a6dbfc990, type: 3}
+  AudioSource: {fileID: 5020091594400485650}
 --- !u!1001 &6947496690620214934
 PrefabInstance:
   m_ObjectHideFlags: 0
