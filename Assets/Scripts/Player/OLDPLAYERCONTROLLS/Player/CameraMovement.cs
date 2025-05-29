@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-    public float speed = 2.5f;
+    public float speed = 5;
     private float initialSpeed;
     private int direction = 1;
+    private float scale;
 
     private void Awake() {
         initialSpeed = speed;
@@ -15,7 +16,8 @@ public class CameraMovement : MonoBehaviour {
         direction *= -1;
     }
 
-    public void SetInitialPosition(float scale) {
+    public void SetInitialPosition(float newScale) {
+        scale = newScale;
         Vector3 newPos = transform.position;
         newPos.y = scale * 10;
         speed = initialSpeed * scale;
@@ -54,12 +56,12 @@ public class CameraMovement : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speed = 60f;
+            speed = 25 * scale;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 25f;
+            speed = 5 * scale;
         }
     }
 }
