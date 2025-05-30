@@ -457,7 +457,7 @@ MonoBehaviour:
   particles:
   - {fileID: 0}
   activatedObjects: []
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 4345159087774960146}
 --- !u!1001 &5516704683614116651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -578,5 +578,10 @@ PrefabInstance:
 --- !u!4 &4037211353816882618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8397045034945365649, guid: d01275f7858801f4ca78ae1dbee695b9, type: 3}
+  m_PrefabInstance: {fileID: 5516704683614116651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4345159087774960146 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8125160605115912505, guid: d01275f7858801f4ca78ae1dbee695b9, type: 3}
   m_PrefabInstance: {fileID: 5516704683614116651}
   m_PrefabAsset: {fileID: 0}
