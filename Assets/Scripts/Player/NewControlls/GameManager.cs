@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour {
     public static Action SelectionChanged;
     public static Action GameReset;
 
+    [SerializeField]
+    private BuildingCostTree[] buildingCosts;
+
     [HideInInspector]
     public bool editorStart = false;
 
@@ -74,6 +77,9 @@ public class GameManager : MonoBehaviour {
         alienStats.otherPlayer = humanStats;
         players[PlayerTeam.HUMAN] = humanStats;
         players[PlayerTeam.ALIEN] = alienStats;
+        foreach (var cost in buildingCosts) {
+            cost.numberActive = 0;
+        }
         if (gameUI != null) {
             gameUI.GameStart();
         }
