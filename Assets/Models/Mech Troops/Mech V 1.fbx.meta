@@ -38,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Damage
-      takeName: Armature|Damage
+      name: Armature|Fire (1)
+      takeName: Armature|Fire
       internalID: -6788532455012819382
       firstFrame: 0
-      lastFrame: 32
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -102,6 +102,13 @@ ModelImporter:
         functionName: SpawnParticles
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.97363466
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 01e9f101ccb0acf4cb6faffbe453fae5, type: 3}
         floatParameter: 1.5
         intParameter: 0
         messageOptions: 0
@@ -165,7 +172,7 @@ ModelImporter:
       - time: 0
         functionName: PlaySoundEffect
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: db018b0292835d94ab20657cd814aca6, type: 3}
+        objectReferenceParameter: {fileID: 8300000, guid: 2b847428d7d831e4da5ca10bce2f2107, type: 3}
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
@@ -288,7 +295,7 @@ ModelImporter:
       - time: 0
         functionName: PlaySoundEffect
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 3a7cc8c2e72df834aac79aa1ea2ae840, type: 3}
+        objectReferenceParameter: {fileID: 8300000, guid: ea6545875aadbaa4a8058b266002eebf, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

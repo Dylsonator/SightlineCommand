@@ -56,7 +56,70 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.04519774
+        functionName: NewEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.21468927
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.18079096
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.43126178
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.45386064
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.64406776
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6873823
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.88323915
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9039548
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 237bdd85a79b19b47b36983745eac1db, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

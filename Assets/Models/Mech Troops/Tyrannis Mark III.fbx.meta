@@ -149,10 +149,17 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.04928458
+      - time: 0.058630377
         functionName: Flash
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.073446326
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 85be857deda50ca4cb06616cd28996e9, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -242,7 +249,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.22222222
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: ea6545875aadbaa4a8058b266002eebf, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.24670434
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: ea6545875aadbaa4a8058b266002eebf, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.62146896
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: ea6545875aadbaa4a8058b266002eebf, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.64406776
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: ea6545875aadbaa4a8058b266002eebf, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
