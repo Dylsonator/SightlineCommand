@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
@@ -10,9 +11,27 @@ public class CameraMovement : MonoBehaviour {
     private Vector2 xBounds;
     private Vector2 zBounds;
 
+    private Vector3 initialPos;
+
+    public static Action DirectionReset;
+
     private void Awake() {
         initialSpeed = speed;
+    }
+
+    private void OnEnable() {
         CameraChange.CameraChanged += SwapDirection;
+        GameManager.GameReset += ResetDirection;
+    }
+
+    private void OnDisable() {
+        CameraChange.CameraChanged -= SwapDirection;
+        GameManager.GameReset -= ResetDirection;
+    }
+
+    public void ResetDirection() {
+        direction = 1;
+        DirectionReset?.Invoke();
     }
 
     private void SwapDirection() {
@@ -23,8 +42,8 @@ public class CameraMovement : MonoBehaviour {
         scale = newScale;
         xBounds = newXBounds;
         zBounds = newZBounds;
-        Vector3 newPos = transform.position;
-        newPos.y = scale * 10;
+        initialPos = transform.position;
+        initialPos.y = scale * 10;
         speed = initialSpeed * scale;
 
     }

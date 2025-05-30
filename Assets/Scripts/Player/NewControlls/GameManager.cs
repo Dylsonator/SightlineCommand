@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> borders;
 
     public static Action SelectionChanged;
+    public static Action GameReset;
 
     [HideInInspector]
     public bool editorStart = false;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour {
         players[PlayerTeam.HUMAN].Destroy();
         players[PlayerTeam.ALIEN].Destroy();
         ClearTiles();
+        GameReset?.Invoke();
         StartGame();
     }
 

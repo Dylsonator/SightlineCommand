@@ -14,9 +14,25 @@ public class CameraChange : MonoBehaviour //Done by Dylan
 
     public static Action CameraChanged;
 
+    private bool reset = false;
+
     private void Awake()
     {
         cam = Camera.main; //finds cam
+    }
+
+    private void OnEnable() {
+        CameraMovement.DirectionReset += ResetPosition;
+    }
+
+    private void OnDisable() {
+        CameraMovement.DirectionReset -= ResetPosition;
+    }
+
+    private void ResetPosition() {
+        //reset = true;
+        //CamAngle = 0;
+        //ChangeCam();
     }
     public void ChangeCam()
     {
@@ -33,7 +49,11 @@ public class CameraChange : MonoBehaviour //Done by Dylan
                 CamAngle = 0;
                 break;
         }
-        CameraChanged.Invoke();
+        if (reset) {
+            reset = false;
+            return;
+        }
+        CameraChanged?.Invoke();
     }
 
 }

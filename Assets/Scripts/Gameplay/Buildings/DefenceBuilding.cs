@@ -10,6 +10,9 @@ public class DefenceBuilding : Building {
     [SerializeField]
     private int range = 1, damage = 1;
 
+    [SerializeField]
+    private Animator defenseAnimator;
+
     private List<Tile> tilesInRange = new List<Tile>();
 
     /// <summary>
@@ -42,6 +45,7 @@ public class DefenceBuilding : Building {
     public void UnitEnterRange(Unit unit) {
         if (unit.team != team) {
             unit.TakeDamage(damage);
+            defenseAnimator.SetTrigger("Attack");
         }
     }
 }
