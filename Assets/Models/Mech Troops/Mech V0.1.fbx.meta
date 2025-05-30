@@ -288,7 +288,7 @@ ModelImporter:
       - time: 0
         functionName: PlaySoundEffect
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 3a7cc8c2e72df834aac79aa1ea2ae840, type: 3}
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
