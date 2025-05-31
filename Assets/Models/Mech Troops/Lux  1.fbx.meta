@@ -38,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Damage
-      takeName: Armature|Damage
+      name: Armature|Walk (1)
+      takeName: Armature|Walk
       internalID: -6788532455012819382
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -61,7 +61,42 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.40301317
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.45009416
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.89682364
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8983051
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.92655367
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -101,7 +136,7 @@ ModelImporter:
       - time: 0.83280253
         functionName: SpawnParticles
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 8300000, guid: 01e9f101ccb0acf4cb6faffbe453fae5, type: 3}
         floatParameter: 1.5
         intParameter: 0
         messageOptions: 0
@@ -134,10 +169,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.33227345
-        functionName: CallEvent
+      - time: 0.0062305294
+        functionName: PlaySoundEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 8300000, guid: 626b383845289b5478c35e3fb4f2373a, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -148,17 +183,38 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7255475
+      - time: 0.33227345
+        functionName: CallEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.72398984
         functionName: DeactivateObjects
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
+      - time: 0.06591337
         functionName: PlaySoundEffect
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 626b383845289b5478c35e3fb4f2373a, type: 3}
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.16572504
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.26553673
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: ce08b14d68b9d49479aae7253538cec7, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -219,7 +275,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.43814352
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46262562
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9127198
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9378531
+        functionName: PlaySoundEffect
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: bbc73322cbbabed47a1c22e65247e1c2, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

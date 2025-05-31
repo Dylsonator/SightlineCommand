@@ -50,6 +50,13 @@ MonoBehaviour:
   gameCursor: {fileID: 8977888492184650884}
   gameUI: {fileID: 0}
   borders: []
+  buildingCosts:
+  - {fileID: 11400000, guid: c849fc913101d374aac4d69f763f4f84, type: 2}
+  - {fileID: 11400000, guid: 2a99da91268b9bf48b433d3585eb642b, type: 2}
+  - {fileID: 11400000, guid: 2f8f2a0de89ca0c42ae2ec327b28f3c8, type: 2}
+  - {fileID: 11400000, guid: 25d6ecaddc82a3c489704ada3094fc84, type: 2}
+  - {fileID: 11400000, guid: ee15e67cbf089414e98acd076bacb08e, type: 2}
+  - {fileID: 11400000, guid: d6d4acd42c9cd084f98d504b092387f8, type: 2}
   editorStart: 0
 --- !u!114 &7082723257312519436
 MonoBehaviour:
