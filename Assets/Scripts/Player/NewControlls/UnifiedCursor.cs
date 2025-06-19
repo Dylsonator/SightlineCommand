@@ -49,9 +49,7 @@ public class UnifiedCursor : MonoBehaviour
     }
         private void Awake()
     {
-        // Replace with your actual layers by name
         rayLayers = LayerMask.GetMask("Default", "Unit", "Building");
-        Debug.Log(rayLayers.value);
     }
 
     private void Update()
@@ -127,10 +125,11 @@ public class UnifiedCursor : MonoBehaviour
         Ray cursorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         
 
-
-        if (Input.GetMouseButtonDown(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
-        {
-            RaycastSelect(cursorRay);
+        if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()) { 
+            if (Input.GetMouseButtonDown(0)) {
+                RaycastSelect(cursorRay);
+            }
+            HoverSelect(cursorRay);
         }
     }
 
@@ -167,7 +166,18 @@ public class UnifiedCursor : MonoBehaviour
         }
     }
 
-
+    private void HoverSelect(Ray ray) {
+        RaycastHit rayHit;
+        if (Physics.Raycast(ray, out rayHit, Mathf.Infinity, rayLayers)) {
+            switch (rayHit.collider.tag) {
+                case "Tile":
+                    if (activeUnit != null && currentMode == UnitMode.Move) { 
+                        activeUnit.HighlightMoveTile(rayHit.collider.GetComponentInParent<Tile>());
+                    }
+                    break;
+            }
+        }
+    }
 
     public void HandSelectionStart()
     {

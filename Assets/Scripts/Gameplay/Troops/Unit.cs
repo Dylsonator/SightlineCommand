@@ -107,12 +107,8 @@ public class Unit : MonoBehaviour
         tile.UnitMovedHere?.Invoke(this);
         if (animate) {
             StopAllCoroutines();
-            PathTile pathToGo = null;
-            foreach (PathTile path in tilesPath) { 
-                if (path.tile == currentTile) {
-                    pathToGo = path;
-                }
-            }
+            
+            PathTile pathToGo = tilesPath.Where(x => x.tile == currentTile).First();
             StartCoroutine(AnimateToTile(pathToGo));
         } else {
             Vector3 position = currentTile.transform.position;
@@ -170,6 +166,7 @@ public class Unit : MonoBehaviour
     public void BeginMove()
     {
         EndTargeting();
+        GameManager.Instance.trailPath.HidePath();
         tilesPath = currentTile.GetWalkableGroup(CurrentMove, isFlying);
         tilesTargetted = tilesPath.Select(path => path.tile).ToList();
         foreach (Tile adjacentTile in tilesTargetted)
@@ -207,7 +204,6 @@ public class Unit : MonoBehaviour
             if (moved) {
                 CurrentMove = 0;
                 currentTile.unitHere = null;              
-                //Debug.Log(CurrentMove);
                 MoveToTile(targetTile, true);
                 EndTargeting();
             }
@@ -295,36 +291,39 @@ public class Unit : MonoBehaviour
         buildingsInSight.Clear();
     }
 
-    // Currently unused code for highlighting the currently hovered tile, with AOE attacks
-
-    //public void HighlightTile(Tile tile) {
-    //    if (tile == tileHighlighted) {
-    //        return;
-    //    }
-    //    if (tileHighlighted != null) {
-    //        UnHighlightTiles();
-    //    }
-    //    if (!tilesTargetted.Contains(tile)) {
-    //        return;
-    //    }
-    //    tileHighlighted = tile;
-    //    foreach (Tile tileToHighlight in tile.GetAdjacentGroup(AOEAttack ? 2 : 1)) {
-    //        tileToHighlight.DisplayColour(moveableCol[1]);
-    //    }
-    //}
+    public void HighlightMoveTile(Tile tile) {
+        if (tile == tileHighlighted) {
+            return;
+        }
+        if (tileHighlighted != null) {
+            tileHighlighted = null;
+        }
+        if (!tilesTargetted.Contains(tile)) {
+            GameManager.Instance.trailPath.HidePath();
+            return;
+        }
+        tileHighlighted = tile;
+        //foreach (Tile tileToHighlight in tile.GetAdjacentGroup(AOEAttack ? 2 : 1)) {
+        //    tileToHighlight.DisplayColour(moveableCol[1]);
+        //}
+        PathTile pathToGo = tilesPath.Where(x => x.tile == tileHighlighted).First();
+        List<Tile> pathPoints = new List<Tile>(pathToGo.path);
+        pathPoints.Insert(0, currentTile);
+        GameManager.Instance.trailPath.SetPath(pathPoints, scale);
+    }
 
     //public void UnHighlightTiles() {
-    //    float startTime = 0;
-    //    foreach (Tile markedTile in tilesTargetted) {
-    //        if (!markedTile.highlighted) {
-    //            startTime = markedTile.lerpTime;
-    //            break;
-    //        }
-    //    }
-    //    foreach (Tile oldTile in tileHighlighted.GetAdjacentGroup(AOEAttack ? 2 : 1)) {
-    //        oldTile.lerpTime = startTime;
-    //        oldTile.DisplayColour(CurrentMoveableCol);
-    //    }
+    //    //float startTime = 0;
+    //    //foreach (Tile markedTile in tilesTargetted) {
+    //    //    if (!markedTile.highlighted) {
+    //    //        startTime = markedTile.lerpTime;
+    //    //        break;
+    //    //    }
+    //    //}
+    //    //foreach (Tile oldTile in tileHighlighted.GetAdjacentGroup(AOEAttack ? 2 : 1)) {
+    //    //    oldTile.lerpTime = startTime;
+    //    //    oldTile.DisplayColour(CurrentMoveableCol);
+    //    //}
     //    tileHighlighted = null;
     //}
 

@@ -50,6 +50,8 @@ MonoBehaviour:
   gameCursor: {fileID: 8977888492184650884}
   gameUI: {fileID: 0}
   borders: []
+  trailPathPrefab: {fileID: 4399157726476616879, guid: 7be39b29d2ee6924a9db23c60a8d64a2, type: 3}
+  trailPath: {fileID: 0}
   buildingCosts:
   - {fileID: 11400000, guid: c849fc913101d374aac4d69f763f4f84, type: 2}
   - {fileID: 11400000, guid: 2a99da91268b9bf48b433d3585eb642b, type: 2}

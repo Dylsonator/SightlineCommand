@@ -176,15 +176,15 @@ public class Tile : MonoBehaviour {
                     inList = true;
                     if (path.minCost > newCost) {
                         path.minCost = newCost;
-                        //List<Tile> newPath = tileToCheck.path;
-                        //newPath.Add(adjacentTile);
-                        //path.path = newPath;
+                        List<Tile> newPath = new List<Tile>(tileToCheck.path);
+                        newPath.Add(adjacentTile);
+                        path.path = newPath;
                     }
                     break;
                 }
             }
             if (!inList && newCost <= maxMovement) {
-                List<Tile> newPath = new List<Tile>(); //tileToCheck.path;
+                List<Tile> newPath = new List<Tile>(tileToCheck.path);
                 newPath.Add(adjacentTile);
                 adjacentPathTile = new PathTile(adjacentTile, currentCost, newPath);
                 pathList.Add(adjacentPathTile);

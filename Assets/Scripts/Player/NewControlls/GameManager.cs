@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour {
     public static Action GameReset;
 
     [SerializeField]
+    private TrailPath trailPathPrefab;
+
+    [HideInInspector]
+    public TrailPath trailPath;
+
+    [SerializeField]
     private BuildingCostTree[] buildingCosts;
 
     [HideInInspector]
@@ -38,6 +44,7 @@ public class GameManager : MonoBehaviour {
         } else if (Instance != this) {
             Destroy(this);
         }
+        trailPath = Instantiate(trailPathPrefab.gameObject).GetComponent<TrailPath>();
     }
 
     private void Start() {
